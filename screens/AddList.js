@@ -25,11 +25,20 @@ export default class AddList extends Component {
         this.setState({ emails });
       }
 
-      AddNewList() {
+      async AddNewList() {
           const { emails, title } = this.state;
           const list = emails.split(',').map(email => email.trim());
-          axios.post('')
-          console.log(list);
+          
+          await axios.post('https://inthebox-server.herokuapp.com/api/lists', {
+            title,
+            emails
+          }).then((err, result) => {
+            if (err) {
+              console.log(err);
+              return
+            }
+            console.log(result);
+          });
       }
 
     render() {

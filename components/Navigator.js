@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Dashboard from '../screens/Dashboard';
 import AddCampaign from '../screens/AddCampaign';
 import EmailLists from '../screens/EmailLists';
+import EmailList from '../screens/EmailList';
 import AddList from '../screens/AddList';
 
 const HomeStack = createStackNavigator();
@@ -21,7 +22,8 @@ const EmailStack = createStackNavigator();
 export function EmailStackScreen() {
     return (
     <HomeStack.Navigator>
-        <HomeStack.Screen name="EmailList" component={EmailLists} />             
+        <HomeStack.Screen name="EmailList" component={EmailLists} /> 
+        <HomeStack.Screen name="Emails" component={EmailList} />
         <HomeStack.Screen name="NewList" component={AddList} />
     </HomeStack.Navigator>
     );
